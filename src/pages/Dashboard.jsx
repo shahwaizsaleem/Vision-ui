@@ -20,7 +20,7 @@ export default function Dashboard() {
   return (
     <>
       {/* Hero Section */}
-      <div className="mb-4">
+      <div className="mt-20">
         <Card />
       </div>
 
@@ -33,7 +33,7 @@ export default function Dashboard() {
         }}
         className="px-4"
       >
-        <Grid container spacing={4}>
+        <Grid container spacing={3}>
           {/* Column 1 */}
           <Grid
             item
@@ -48,6 +48,7 @@ export default function Dashboard() {
               backgroundSize: "cover",
               backgroundPosition: "center",
               borderRadius: "10px",
+              mt:-8,
               p: 3,
               boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)" 
             }}
@@ -94,6 +95,7 @@ export default function Dashboard() {
                 color: "#fff",
                 height: "344px",
                 display: "flex",
+                mt:-8,
                 flexDirection: "column",
                 justifyContent: "space-between",
                 boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)" 
@@ -169,6 +171,7 @@ export default function Dashboard() {
               background: "linear-gradient(to bottom, #060B28BD, #0E153AB5)",
               borderRadius: "10px",
               p: 3,
+              mt:-8,
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",

@@ -28,8 +28,8 @@ const orders = [
 
 export default function DashboardCards() {
   return (
-    <Box sx={{ p: 4,minHeight: "100vh" }}>
-      <Grid container spacing={2}>
+    <Box sx={{ml:-4, p: 4,minHeight: "50vh" }}>
+      <Grid container spacing={6}>
         
         {/* Projects Card */}
         <Grid item xs={12}>

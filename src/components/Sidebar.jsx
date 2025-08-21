@@ -7,12 +7,12 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Divider,
   Card,
   CardContent,
   Button,
   IconButton,
   Tooltip,
+  useMediaQuery,
 } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Home";
 import TableChartIcon from "@mui/icons-material/TableChart";
@@ -23,6 +23,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 
 const menuItems1 = [
@@ -39,113 +40,93 @@ const menuItems2 = [
 ];
 
 export default function Sidebar() {
-  const [open, setOpen] = React.useState(true);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [mobileOpen, setMobileOpen] = React.useState(false);
   const navigate = useNavigate();
 
-  const drawerWidth = open ? 260 : 72;
+  // Fixed width on desktop (not slim), same width on mobile drawer
+  const drawerWidth = 240;
 
-  const MenuList = ({ items, primary }) => (
-    <List>
-      {items.map((item, index) => {
-        const button = (
-          <ListItemButton
-            onClick={() => navigate(item.path)}
+  const MenuList = ({ items }) => (
+    <List sx={{ p: 0, m: 0 }}>
+      {items.map((item, i) => (
+        <ListItemButton
+          key={item.text}
+          onClick={() => {
+            navigate(item.path);
+            if (isMobile) setMobileOpen(false);
+          }}
+          sx={{
+            borderRadius: "8px",
+            mb: 1,
+            "&:hover": { background: "rgba(59,130,246,0.2)" },
+          }}
+        >
+          <ListItemIcon
             sx={{
-              borderRadius: "8px",
-              mb: 1,
-              justifyContent: open ? "initial" : "center",
-              background:
-                primary && index === 0 && open
-                  ? "rgba(59,130,246,0.3)"
-                  : "transparent",
-              "&:hover": { background: "rgba(59,130,246,0.2)" },
+              color: "#0075ff",
+              minWidth: 0,
+              mr: 1.5,
+              justifyContent: "center",
             }}
           >
-            <ListItemIcon
-              sx={{
-                color: primary ? "white" : "#0075ff",
-                minWidth: 0,
-                mr: open ? 1.5 : 0,
-                justifyContent: "center",
-              }}
-            >
-              {item.icon}
-            </ListItemIcon>
-            {open && <ListItemText primary={item.text} />}
-          </ListItemButton>
-        );
-
-        return open ? (
-          <Box key={item.text}>{button}</Box>
-        ) : (
-          <Tooltip key={item.text} title={item.text} placement="right">
-            <Box>{button}</Box>
-          </Tooltip>
-        );
-      })}
+            {item.icon}
+          </ListItemIcon>
+          <ListItemText primary={item.text} />
+        </ListItemButton>
+      ))}
     </List>
   );
 
-  return (
-    <Drawer
-      variant="permanent"
+  const drawerContent = (
+    <Box
       sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        "& .MuiDrawer-paper": {
-          width: drawerWidth,
-          boxSizing: "border-box",
-          transition: "width 200ms ease",
-          background: "linear-gradient(to bottom, #060B26F0 94%, #1A1F3700 0%)",
-          color: "white",
-          padding: "0.75rem",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-        },
+        height: "100vh", // full viewport height
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        background: "#042154", // original
+        color: "white",
+        p: 1,
+        overflow: "hidden", // no internal scrollbar
       }}
     >
-      {/* Header + Toggle */}
       <Box>
+        {/* Header (no desktop toggle; close only on mobile) */}
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: open ? "space-between" : "center",
+            justifyContent: "space-between",
             mb: 1,
           }}
         >
-          {open && (
-            <Typography variant="subtitle2" sx={{ opacity: 0.8 }}>
-              VISION UI FREE
-            </Typography>
-          )}
+          <Typography variant="subtitle2" sx={{ opacity: 0.8 }}>
+            VISION UI FREE
+          </Typography>
+
+          {/* Close button visible only on mobile drawer */}
           <IconButton
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => setMobileOpen(false)}
             size="small"
-            sx={{ color: "white" }}
-            aria-label={open ? "Close sidebar" : "Open sidebar"}
+            sx={{ color: "white", display: { xs: "inline-flex", md: "none" } }}
+            aria-label="Close sidebar"
           >
-            {open ? <CloseIcon /> : <MenuIcon />}
+            <CloseIcon />
           </IconButton>
         </Box>
 
-        <Divider sx={{ borderColor: "rgba(255,255,255,0.1)", mb: 1 }} />
+        {/* Menus */}
+        <MenuList items={menuItems1} />
 
-        {/* Menu Group 1 */}
-        <MenuList items={menuItems1} primary />
+        <Typography
+          variant="subtitle2"
+          sx={{ opacity: 0.6, mt: 1, mb: 1, fontSize: "0.75rem" }}
+        >
+          ACCOUNT PAGES
+        </Typography>
 
-        {/* Section label */}
-        {open && (
-          <Typography
-            variant="subtitle2"
-            sx={{ opacity: 0.6, mt: 1, mb: 1, fontSize: "0.75rem" }}
-          >
-            ACCOUNT PAGES
-          </Typography>
-        )}
-
-        {/* Menu Group 2 */}
         <MenuList items={menuItems2} />
       </Box>
 
@@ -158,33 +139,92 @@ export default function Sidebar() {
           p: 1,
         }}
       >
-        <CardContent sx={{ textAlign: "center", p: open ? 2 : 1 }}>
-          <Typography variant="h6" fontWeight="bold" sx={{ fontSize: open ? "1.1rem" : "0.9rem" }}>
+        <CardContent sx={{ textAlign: "center", p: 2 }}>
+          <Typography variant="h6" fontWeight="bold" sx={{ fontSize: "1.1rem" }}>
             Need help?
           </Typography>
-          {open && (
-            <Typography variant="body2" sx={{ mb: 1 }}>
-              Please check our docs
-            </Typography>
-          )}
+          <Typography variant="body2" sx={{ mb: 1 }}>
+            Please check our docs
+          </Typography>
           <Button
-            fullWidth={open}
+            fullWidth
             variant="contained"
             size="small"
             sx={{
-              mt: open ? 0.5 : 0,
               background: "white",
               color: "#1e3a8a",
               textTransform: "none",
               "&:hover": { background: "#f1f5f9" },
-              px: open ? 2 : 1,
-              minWidth: open ? 120 : 36,
+              px: 2,
+              minWidth: 120,
             }}
           >
-            {open ? "Documentation" : "Docs"}
+            Documentation
           </Button>
         </CardContent>
       </Card>
-    </Drawer>
+    </Box>
+  );
+
+  return (
+    <>
+      {/* Mobile hamburger: only on small screens */}
+      <IconButton
+        sx={{
+          position: "fixed",
+          top: 16,
+          left: 16,
+          zIndex: 1300,
+          color: "white",
+          display: { xs: "inline-flex", md: "none" },
+        }}
+        onClick={() => setMobileOpen(true)}
+        aria-label="Open sidebar"
+      >
+        <MenuIcon />
+      </IconButton>
+
+      {/* Desktop: fixed, permanent, no toggle, full height, no border/divider, no scroll */}
+      <Drawer
+        variant="permanent"
+        open
+        sx={{
+          display: { xs: "none", md: "block" },
+          width: drawerWidth,
+          flexShrink: 0,
+          "& .MuiDrawer-paper": {
+            width: drawerWidth,
+            height: "100vh",
+            boxSizing: "border-box",
+            borderRight: "none", // remove any divider line
+            boxShadow: "none",   // remove paper shadow edge (looks like a divider)
+            overflow: "hidden",  // no scrollbar
+          },
+        }}
+      >
+        {drawerContent}
+      </Drawer>
+
+      {/* Mobile: temporary drawer */}
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={() => setMobileOpen(false)}
+        ModalProps={{ keepMounted: true }}
+        sx={{
+          display: { xs: "block", md: "none" },
+          "& .MuiDrawer-paper": {
+            width: drawerWidth,
+            height: "100vh",
+            boxSizing: "border-box",
+            borderRight: "none",
+            boxShadow: "none",
+            overflow: "hidden",
+          },
+        }}
+      >
+        {drawerContent}
+      </Drawer>
+    </>
   );
 }

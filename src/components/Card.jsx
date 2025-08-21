@@ -1,9 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 import { Card as MuiCard, CardContent, Typography, Box } from "@mui/material";
-import WalletIcon from '@mui/icons-material/AccountBalanceWallet';
-import LanguageIcon from '@mui/icons-material/Language';
-import NotesIcon from '@mui/icons-material/TextSnippet';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import WalletIcon from "@mui/icons-material/AccountBalanceWallet";
+import LanguageIcon from "@mui/icons-material/Language";
+import NotesIcon from "@mui/icons-material/TextSnippet";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 export default function Card() {
   const stats = [
@@ -42,13 +42,13 @@ export default function Card() {
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+        gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(4, 1fr)" },
         gap: 3,
         bgcolor: "#042154",
         p: 2,
         width: { xs: "100%", md: "calc(100% - 260px)" },
         ml: { xs: 0, md: "240px" },
-        mt: { xs: "70px", md: "80px" },
+        mt: { xs: "30px", md: "40px" },
       }}
     >
       {stats.map((stat, index) => (
@@ -60,10 +60,12 @@ export default function Card() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+          
             p: 2,
             borderRadius: 2,
+            minHeight: 100,
             boxShadow: stat.highlight
-              ? "0 0 10px rgba(0,150,255,0.7)"
+              ? "0 0 12px rgba(0,117,255,0.7)"
               : "none",
           }}
         >
@@ -71,15 +73,17 @@ export default function Card() {
             <Typography variant="body2" color="#A0AEC0">
               {stat.label}
             </Typography>
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Typography variant="h6" sx={{ fontWeight: "bold", color: "white" }}>
+            <Box sx={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: "bold", color: "white", mr: 1 }}
+              >
                 {stat.value}
               </Typography>
               <Typography
                 sx={{
                   color: stat.changeColor,
                   fontSize: "0.9rem",
-                  ml: 1,
                   fontWeight: "normal",
                 }}
               >
@@ -95,6 +99,8 @@ export default function Card() {
               borderRadius: "8px",
               display: "flex",
               alignItems: "center",
+              minWidth: 40,
+              justifyContent: "center",
             }}
           >
             {stat.icon}

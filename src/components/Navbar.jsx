@@ -11,9 +11,25 @@ import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
 import SettingsIcon from "@mui/icons-material/Settings";
 import NotificationIcon from "@mui/icons-material/Notifications";
+import { useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  // Map routes to titles
+  const pageTitles = {
+    "/dashboard": "Dashboard",
+    "/tables": "Tables",
+    "/billing": "Billing",
+    "/rtl": "RTL",
+    "/profile": "Profile",
+    "/signin": "Sign In",
+    "/signup": "Sign Up",
+  };
+
+  const currentPath = location.pathname;
+  const pageTitle = pageTitles[currentPath] || "Dashboard"; // fallback
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,8 +44,8 @@ export default function Navbar() {
       position="fixed"
       elevation={0}
       sx={{
-        width: { xs: "100%", md: "calc(100% - 260px)" },
-        ml: { xs: 0, md: "260px" },
+        width: { xs: "100%", md: "calc(100% - 240px)" }, // match sidebar width
+        ml: { xs: 0, md: "240px" },
         mt: "10px",
         borderRadius: "8px",
         backgroundColor: scrolled ? "rgba(4, 33, 84, 0.5)" : "#042154",
@@ -42,26 +58,39 @@ export default function Navbar() {
         justifyContent: "center",
       }}
     >
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between", minHeight: "unset" }}>
+      <Toolbar
+        sx={{ display: "flex", justifyContent: "space-between", minHeight: "unset" }}
+      >
+        {/* Left Section (Dynamic Title) */}
         <Box>
-          <Typography variant="caption" sx={{ color: "gray", display: "block", fontSize: "0.75rem" }}>
-            Pages / Dashboard
+          <Typography
+            variant="caption"
+            sx={{ color: "gray", display: "block", fontSize: "0.75rem" }}
+          >
+            Pages / {pageTitle}
           </Typography>
-          <Typography variant="body1" sx={{ color: "white", fontWeight: "bold" }}>
-            Dashboard
+          <Typography
+            variant="body1"
+            sx={{ color: "white", fontWeight: "bold" }}
+          >
+            {pageTitle}
           </Typography>
         </Box>
 
+        {/* Right Section (Search + Icons) */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 1, flexWrap: "wrap" }}>
-          <Box sx={{
-            display: { xs: "none", sm: "flex" },
-            alignItems: "center",
-            background: "rgba(255,255,255,0.08)",
-            borderRadius: "12px",
-            px: 1.5,
-            py: 0.3,
-            color: "white",
-          }}>
+          {/* Search Box */}
+          <Box
+            sx={{
+              display: { xs: "none", sm: "flex" },
+              alignItems: "center",
+              background: "rgba(255,255,255,0.08)",
+              borderRadius: "12px",
+              px: 1.5,
+              py: 0.3,
+              color: "white",
+            }}
+          >
             <SearchIcon sx={{ fontSize: "18px", opacity: 0.7 }} />
             <InputBase
               placeholder="Type here..."
