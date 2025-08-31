@@ -1,0 +1,124 @@
+/* Hide scrollbar for all elements but maintain scrolling functionality */
+* {
+  scrollbar-width: none;  /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Edge */
+}
+
+/* Your original CSS with scrollbar hiding */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure body allows scrolling but hides scrollbar */
+body {
+  overflow-y: scroll;       /* allow scrolling */
+  scrollbar-width: none;    /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+body::-webkit-scrollbar {
+  width: 0px;               /* Chrome, Safari, Edge */
+  background: transparent;  /* optional: hide scrollbar track */
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow-y: scroll;       /* allow scrolling */
+  scrollbar-width: none;    /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  width: 0px;               /* Chrome, Safari, Edge */
+  background: transparent;  /* optional: hide scrollbar track */
+}
+/* ---------------------------
+   🌍 Global Styles
+---------------------------- */
+
+/* Import Google Fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap'); */
+
+
+:root {
+  --primary-color: #6366f1;  /* Indigo */
+  --secondary-color: #06b6d4; /* Cyan */
+  --background-color: #042154; /* Light Gray */
+  --text-color: #e6f0ff;       /* Dark Gray */
+  --border-color: #e2e8f0;
+}
+
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+button:hover {
+  background-color: #4f46e5;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.text-center {
+  text-align: center;
+}
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+
