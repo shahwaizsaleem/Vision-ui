@@ -47,7 +47,7 @@ body::-webkit-scrollbar {
 :root {
   --primary-color: #6366f1;  /* Indigo */
   --secondary-color: #06b6d4; /* Cyan */
-  --background-color: #042154; /* Light Gray */
+  --background-color: #0F123B; /* Light Gray */
   --text-color: #e6f0ff;       /* Dark Gray */
   --border-color: #e2e8f0;
 }

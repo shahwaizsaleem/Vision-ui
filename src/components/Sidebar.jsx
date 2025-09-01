@@ -65,6 +65,7 @@ export default function Sidebar({ mobileOpen, setMobileOpen,desktopOpen}) {
           <ListItemIcon
             sx={{
               color: "#0075ff",
+              
               minWidth: 0,
               mr: 1.5,
               justifyContent: "center",
@@ -85,7 +86,7 @@ export default function Sidebar({ mobileOpen, setMobileOpen,desktopOpen}) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        background: "#042154",
+        background: "#0F123B",
         color: "white",
         p: 1,
         overflow: "hidden",

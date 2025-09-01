@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -51,7 +52,7 @@ width: {
     },        ml: { xs: 0, md: `${drawerWidth}px` }, // shifted only on desktop
         mt: "10px",
         borderRadius: "8px",
-        backgroundColor: scrolled ? "rgba(4, 33, 84, 0.5)" : "#042154",
+        backgroundColor: scrolled ? "rgba(4, 33, 84, 0.5)" : "#0F123B",
         border: scrolled ? "1px solid white" : "none",
         backdropFilter: scrolled ? "blur(8px)" : "none",
         boxShadow: scrolled ? "0 8px 20px rgba(255,255,255,0.15)" : "none",
@@ -113,8 +114,13 @@ width: {
               }}
             />
           </Box>
-
-          <IconButton sx={{ color: "#718096", fontSize: "0.8rem" }}>
+          
+          <IconButton
+  component={Link}
+  to="/signin"
+  sx={{ color: "#718096", fontSize: "0.8rem" }}
+>
+            
             <PersonIcon fontSize="small" />
             <Typography sx={{ ml: 0.5, fontSize: "0.85rem", color: "#718096" }}>
               Sign In
@@ -124,7 +130,7 @@ width: {
                 <IconButton
                   onClick={() => setDesktopOpen(!desktopOpen)}
                   sx={{
-                    display: { xs: "none", md: "inline-flex" },
+                    display: { xs: "none", md: "inline-flex",color: "#718096" },
                   }}
                 >
                   {desktopOpen ? <MenuIcon /> : <MenuIcon />}
