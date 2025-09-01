@@ -58,11 +58,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         {/* Redirect root ("/") to Signin */}
-        <Route path="/" element={<Navigate to="/Signin" replace />} />
+        <Route path="/" element={<Navigate to="/signin" replace />} />
 
         {/* Auth Pages */}
-        <Route path="/Signin" element={<Layout><Signin /></Layout>} />
-        <Route path="/Signup" element={<Layout><Signup /></Layout>} />
+        <Route path="/signin" element={<Layout><Signin /></Layout>} />
+        <Route path="/signup" element={<Layout><Signup /></Layout>} />
 
         {/* Dashboard Pages */}
         <Route path="/dashboard" element={<Layout><Dashboard /></Layout>} />
