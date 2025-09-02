@@ -24,6 +24,7 @@ import MenuIcon from "@mui/icons-material/Menu";   // 🔹 for desktop toggle bu
 import { useTheme } from "@mui/material/styles";
 import { useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import SDimg from '../assets/SDimg.png';
 
 const menuItems1 = [
   { text: "Dashboard", icon: <DashboardIcon />, path: "/dashboard" },
@@ -107,12 +108,7 @@ export default function Sidebar({ mobileOpen, setMobileOpen,desktopOpen}) {
         >
           {/* Logo + Text */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <img
-              src="/logo192.png"
-              alt="Logo"
-              style={{ width: 28, height: 28 }}
-            />
-            <Typography variant="subtitle1" sx={{ opacity: 0.8 }}>
+            <Typography variant="subtitle1" sx={{ opacity: 2 }}>
               VISION UI FREE
             </Typography>
           </Box>
@@ -140,6 +136,7 @@ export default function Sidebar({ mobileOpen, setMobileOpen,desktopOpen}) {
             width: "60%",
             mx: "auto",
             mb: 1,
+              boxShadow: "0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.6)",
           }}
         />
 
@@ -158,13 +155,27 @@ export default function Sidebar({ mobileOpen, setMobileOpen,desktopOpen}) {
       {/* 🔹 Bottom Help Card */}
       <Card
         sx={{
-          background: "linear-gradient(135deg, #1e3a8a, #3b82f6)",
+          overflow: "hidden",
+          position: "relative", 
           color: "white",
           borderRadius: "12px",
           p: 1,
         }}
       >
-        <CardContent sx={{ textAlign: "center", p: 2 }}>
+          <img
+    src={SDimg} // replace with your image path
+    alt="Background"
+    style={{
+      position: "absolute",
+      inset: 0,
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      zIndex: 0,
+    }}
+  />
+        <CardContent sx={{ textAlign: "center", p: 2,position: "relative",
+      zIndex: 1, }}>
           <Typography variant="h6" fontWeight="bold" sx={{ fontSize: "1.1rem" }}>
             Need help?
           </Typography>

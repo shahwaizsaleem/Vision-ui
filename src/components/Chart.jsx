@@ -6,7 +6,7 @@ import RocketIcon from '@mui/icons-material/RocketLaunch';
 import CartIcon from '@mui/icons-material/ShoppingCart';
 import ManIcon from '@mui/icons-material/Handyman';
 
-const Chart = () => {
+const Chart = ({desktopOpen }) => {
   // ===== Area chart options =====
   const areaOptions = {
     chart: { type: "area", toolbar: { show: false }, zoom: { enabled: false } },
@@ -55,10 +55,10 @@ const Chart = () => {
   ];
 
   return (
-    <Box sx={{ width: { xs: "100%", md: "100% - 260px" }, mt: 1, p: 2 }}>
-      <Grid container spacing={4}>
+    <Box sx={{ width: { xs: "100%", md: desktopOpen ? "calc(100% - 240px)" : "100%" }, mt: 1, p: 2,transition: "width 0.3s ease" }}>
+      <Grid container spacing={2}>
         {/* ===== First chart (Area) ===== */}
-        <Grid item xs={12} md={7} sx={{ flexBasis: {  xs: "100%", md: "57%" }, maxWidth: { xs: "100%", md: "60%" } } }>
+        <Grid item xs={12} md={desktopOpen ? 6 : 7} sx={{ flexBasis: {  xs: "100%", md: "58%" }, maxWidth: { xs: "100%", md: "60%" } } }>
           <Card sx={{ backgroundColor: "#06275F", borderRadius: "16px", color: "#fff", boxShadow: "0 4px 20px rgba(0,0,0,0.5)",height: "420px" }}>
             <CardContent>
               <Typography variant="h6" sx={{ fontWeight: "bold", color: "#FFFF" }}>Sales overview</Typography>
@@ -73,7 +73,7 @@ const Chart = () => {
         </Grid>
 
         {/* ===== Second chart (Bar + stats) ===== */}
-        <Grid item xs={12} md={5} sx={{ flexBasis: { xs: "100%", md: "40%" }, maxWidth: { xs: "100%", md: "40%" } }}>
+        <Grid item xs={12} md={desktopOpen ? 6 : 5} sx={{ flexBasis: { xs: "100%", md: "40%" }, maxWidth: { xs: "100%", md: "40%" } }}>
           <Card sx={{ backgroundColor:"#061E45", borderRadius: "16px", color: "#fff", boxShadow: "0 4px 20px rgba(0,0,0,0.5)",height: "420px" }}>
             <CardContent>
               <ApexChart options={barOptions} series={barSeries} type="bar" height={150} style={{ borderRadius: "20px" }} /> 
