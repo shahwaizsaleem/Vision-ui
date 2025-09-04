@@ -395,8 +395,8 @@ export default function Profile() {
         {/* Projects Section */}
         <Card sx={{ bgcolor: "#060B28F0", color: "white", borderRadius: 4, }}>
           <CardContent >
-            <Typography sx={{marginLeft:"40px"}} variant="h6">Projects</Typography>
-            <Typography sx={{marginLeft:"40px"}} variant="subtitle2">Architects design houses</Typography>
+            <Typography sx={{marginLeft: { xs: 0, sm: 0, md: "40px" }}} variant="h6">Projects</Typography>
+            <Typography sx={{marginLeft: { xs: 0, sm: 0, md: "40px" }}} variant="subtitle2">Architects design houses</Typography>
             <Grid container spacing={4} sx={{ mt: 1 }}>
               {projects.map((p, index) => (
                 <Grid item xs={12} sm={6} md={4} key={index}>
@@ -407,7 +407,7 @@ export default function Profile() {
                       minHeight: { xs: 220, md: 250 },
                       position: "relative",
                       overflow: "hidden",
-                      marginLeft:"40px"
+                      marginLeft: { xs: 0, sm: 0, md: "40px" },
                     }}
                   >
                     <Box

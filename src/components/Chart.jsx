@@ -59,7 +59,7 @@ const Chart = ({desktopOpen }) => {
       <Grid container spacing={2}>
         {/* ===== First chart (Area) ===== */}
         <Grid item xs={12} md={desktopOpen ? 6 : 7} sx={{ flexBasis: {  xs: "100%", md: "58%" }, maxWidth: { xs: "100%", md: "60%" } } }>
-          <Card sx={{ backgroundColor: "#06275F", borderRadius: "16px", color: "#fff", boxShadow: "0 4px 20px rgba(0,0,0,0.5)",height: "420px" }}>
+          <Card sx={{ backgroundColor: "#060B28BD", borderRadius: "16px", color: "#fff", boxShadow: "0 4px 20px rgba(0,0,0,0.5)",height: "420px" }}>
             <CardContent>
               <Typography variant="h6" sx={{ fontWeight: "bold", color: "#FFFF" }}>Sales overview</Typography>
               <Typography variant="body2" sx={{ color: "#4ADE80", mb: 2 }}>
@@ -74,7 +74,7 @@ const Chart = ({desktopOpen }) => {
 
         {/* ===== Second chart (Bar + stats) ===== */}
         <Grid item xs={12} md={desktopOpen ? 6 : 5} sx={{ flexBasis: { xs: "100%", md: "40%" }, maxWidth: { xs: "100%", md: "40%" } }}>
-          <Card sx={{ backgroundColor:"#061E45", borderRadius: "16px", color: "#fff", boxShadow: "0 4px 20px rgba(0,0,0,0.5)",height: "420px" }}>
+          <Card sx={{ backgroundColor:"#060B28BD", borderRadius: "16px", color: "#fff", boxShadow: "0 4px 20px rgba(0,0,0,0.5)",height: "420px" }}>
             <CardContent>
               <ApexChart options={barOptions} series={barSeries} type="bar" height={150} style={{ borderRadius: "20px" }} /> 
               <Typography variant="h6" sx={{ fontWeight: "bold", color: "white", mt: 2 }}>Active Users</Typography>
