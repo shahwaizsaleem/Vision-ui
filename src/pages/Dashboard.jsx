@@ -3,20 +3,24 @@ import Chart from "../components/Chart.jsx";
 import Card from "../components/Card.jsx";
 import Tablets from "../components/Tablets.jsx";
 import Hero from "../components/Hero.jsx";
-import { Box } from "@mui/material";
 
 export default function Dashboard() {
   return (
-    <Box 
-      sx={{ 
-        width: { xs: "100%", md: "calc(100%)" }, // Set width to 100% on small screens, and calc on medium and up
-        mt: 4, 
-      }}
-    >
-      <Card />
-      <Hero />
-      <Chart />
-      <Tablets />
-    </Box>
+    <div className="w-full mt-8 overflow-x-auto md:overflow-x-visible">
+      <div className="flex flex-col gap-4 min-w-full md:min-w-0">
+        <div className="w-full">
+          <Card />
+        </div>
+        <div className="w-full">
+          <Hero />
+        </div>
+        <div className="w-full">
+          <Chart />
+        </div>
+        <div className="w-full">
+          <Tablets />
+        </div>
+      </div>
+    </div>
   );
 }

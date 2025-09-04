@@ -43,8 +43,10 @@ export default function Card() {
       sx={{
         display: "grid",
         gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(4, 1fr)" },
-        gap: 3,
-        p: 2,
+        gap: { xs: 2, sm: 3 }, // smaller gap on XS screens
+        p: { xs: 1, md: 2 },   // smaller padding on XS screens
+        width: "100%",
+        boxSizing: "border-box", // ensures padding doesn't overflow
       }}
     >
       {stats.map((stat, index) => (
@@ -56,7 +58,7 @@ export default function Card() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            p: 2,
+            p: { xs: 1.5, md: 2 }, // smaller card padding on XS
             borderRadius: 2,
             minHeight: 100,
             boxShadow: stat.highlight ? "0 0 12px rgba(0,117,255,0.7)" : "none",
@@ -83,8 +85,8 @@ export default function Card() {
               borderRadius: "8px",
               display: "flex",
               alignItems: "center",
-              minWidth: 40,
               justifyContent: "center",
+              minWidth: { xs: "auto", md: 40 }, // remove minWidth on small screens
             }}
           >
             {stat.icon}
