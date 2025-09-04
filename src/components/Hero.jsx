@@ -11,16 +11,16 @@ export default function Hero() {
     <Box
       sx={{
         display: "flex",
-        flexWrap: "no wrap",
-        gap:2,// spacing between cards
-        mb:2,
+        flexWrap: "wrap", // ✅ allows stacking on small screens
+        gap: 2,
+        mb: 2,
       }}
       className="px-4"
     >
       {/* Card 1 */}
       <Box
         sx={{
-          width: { xs: "100%", md: "100%" }, // adjust width here
+          flex: { xs: "1 1 100%", md: "1 1 100%" }, // ✅ full width on all
           height: { xs: "220px", sm: "260px", md: "344px" },
           backgroundImage: `url(${background})`,
           backgroundSize: "cover",
@@ -33,7 +33,10 @@ export default function Hero() {
         <Typography sx={{ color: "#a0aec0", mb: 1 }} variant="subtitle2" fontWeight="bold">
           Welcome back,
         </Typography>
-        <Typography variant="h6" sx={{ color: "#fff", fontSize: { xs: "18px", sm: "22px", md: "28px" }, mb: 1 }}>
+        <Typography
+          variant="h6"
+          sx={{ color: "#fff", fontSize: { xs: "18px", sm: "22px", md: "28px" }, mb: 1 }}
+        >
           Mark Johnson
         </Typography>
         <Typography variant="body2" sx={{ color: "#a0aec0" }}>
@@ -53,7 +56,7 @@ export default function Hero() {
       {/* Card 2 */}
       <Paper
         sx={{
-          width: { xs: "100%", md: "50%" }, // adjust width here
+          flex: { xs: "1 1 100%", md: "1 1 48%" }, // ✅ full width on mobile, half on desktop
           p: { xs: 2, md: 3 },
           borderRadius: 4,
           backgroundColor: "#051232",
@@ -71,7 +74,7 @@ export default function Hero() {
         </Box>
 
         <Box sx={{ position: "relative", display: "inline-flex", mx: "auto" }}>
-          <CircularProgress variant="determinate" value={90} size={120} thickness={4} sx={{ color: "#1976d2" }} />
+          <CircularProgress variant="determinate" value={90} size={100} thickness={4} sx={{ color: "#1976d2" }} />
           <Box sx={{ top: 0, left: 0, bottom: 0, right: 0, position: "absolute", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <InsertEmoticonIcon sx={{ fontSize: { xs: 28, md: 40 }, color: "#0075ff" }} />
           </Box>
@@ -88,69 +91,60 @@ export default function Hero() {
       </Paper>
 
       {/* Card 3 */}
-    <Box
-  sx={{
-    width: { xs: "100%", md: "50%" }, // wider on desktop
-    height: { xs: "240px", sm: "280px", md: "344px" },
-    background: "linear-gradient(to bottom, #060B28BD, #0E153AB5)",
-    borderRadius: "16px",
-    p: { xs: 2, md: 3 },
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    color: "#fff",
-    boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)"
-  }}
->
-  {/* Header */}
-  <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-    <Typography variant="subtitle1" fontWeight="bold">Referral Tracking</Typography>
-    <IconButton sx={{ color: "#fff" }}><MoreHorizIcon /></IconButton>
-  </Box>
-
-  {/* Content */}
-  <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexGrow: 1, mt: 2 }}>
-    
-    {/* Left side stats */}
-    <Box>
-      <Box sx={{ mb: 2, backgroundColor: "#060C29", p: 2, borderRadius: "12px" }}>
-        <Typography variant="caption" sx={{ color: "#A0AEC0" }}>Invited</Typography>
-        <Typography variant="subtitle1" fontWeight="bold" color="#fff">145 people</Typography>
-      </Box>
-      <Box sx={{ backgroundColor: "#060C29", p: 2, borderRadius: "12px" }}>
-        <Typography variant="caption" sx={{ color: "#A0AEC0" }}>Bonus</Typography>
-        <Typography variant="subtitle1" fontWeight="bold" color="#fff">1,465</Typography>
-      </Box>
-    </Box>
-
-    {/* Right side circular progress */}
-    <Box sx={{ position: "relative", display: "inline-flex" }}>
-      <CircularProgress 
-        variant="determinate" 
-        value={75} 
-        size={110} 
-        thickness={5} 
-        sx={{ color: "#00ffcc" }} 
-        
-      />
-      <Box 
-        sx={{ 
-          top: 0, left: 0, bottom: 0, right: 0, 
-          position: "absolute", 
-          display: "flex", 
-          flexDirection: "column", 
-          alignItems: "center", 
-          justifyContent: "center" 
+      <Box
+        sx={{
+          flex: { xs: "1 1 100%", md: "1 1 48%" }, // ✅ responsive
+          height: { xs: "240px", sm: "280px", md: "344px" },
+          background: "linear-gradient(to bottom, #060B28BD, #0E153AB5)",
+          borderRadius: "16px",
+          p: { xs: 2, md: 3 },
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          color: "#fff",
+          boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)"
         }}
       >
-        <Typography variant="caption" sx={{ color: "#fff" }}>Safety</Typography>
-        <Typography variant="h6" fontWeight="bold" color="#fff">9.3</Typography>
-        <Typography variant="caption" fontWeight="bold" sx={{ color: "#fff" }}>Total Score</Typography>
-      </Box>
-    </Box>
-  </Box>
-</Box>
+        {/* Header */}
+        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <Typography variant="subtitle1" fontWeight="bold">Referral Tracking</Typography>
+          <IconButton sx={{ color: "#fff" }}><MoreHorizIcon /></IconButton>
+        </Box>
 
+        {/* Content */}
+        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexGrow: 1, mt: 2 }}>
+          {/* Left stats */}
+          <Box>
+            <Box sx={{ mb: 2, backgroundColor: "#060C29", p: 2, borderRadius: "12px" }}>
+              <Typography variant="caption" sx={{ color: "#A0AEC0" }}>Invited</Typography>
+              <Typography variant="subtitle1" fontWeight="bold" color="#fff">145 people</Typography>
+            </Box>
+            <Box sx={{ backgroundColor: "#060C29", p: 2, borderRadius: "12px" }}>
+              <Typography variant="caption" sx={{ color: "#A0AEC0" }}>Bonus</Typography>
+              <Typography variant="subtitle1" fontWeight="bold" color="#fff">1,465</Typography>
+            </Box>
+          </Box>
+
+          {/* Right circular progress */}
+          <Box sx={{ position: "relative", display: "inline-flex" }}>
+            <CircularProgress variant="determinate" value={75} size={90} thickness={5} sx={{ color: "#00ffcc" }} />
+            <Box
+              sx={{
+                top: 0, left: 0, bottom: 0, right: 0,
+                position: "absolute",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
+              <Typography variant="caption" sx={{ color: "#fff" }}>Safety</Typography>
+              <Typography variant="h6" fontWeight="bold" color="#fff">9.3</Typography>
+              <Typography variant="caption" fontWeight="bold" sx={{ color: "#fff" }}>Total Score</Typography>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
     </Box>
   );
 }
