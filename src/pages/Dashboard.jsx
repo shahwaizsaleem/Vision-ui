@@ -7,7 +7,7 @@ import { Box } from "@mui/material";
 
 export default function Dashboard() {
   return (
-    <Box sx={{ width: { xs: "100%", md: "(100% - 260px)" },  p: 2, mt:4, }}  >
+    <Box sx={{ width: { xs: "100%", md: "(100% - 260px)" },  mt:4, }}  >
       <Card />
       <Hero />
       <Chart />

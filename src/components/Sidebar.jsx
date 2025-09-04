@@ -83,14 +83,14 @@ export default function Sidebar({ mobileOpen, setMobileOpen,desktopOpen}) {
   const drawerContent = (
     <Box
       sx={{
-        height: "100vh",
+        height: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
         background: "#0F123B",
         color: "white",
         p: 1,
-        overflow: "hidden",
+        overflowY: "auto",
       }}
     >
       <Box>
@@ -218,6 +218,9 @@ display: { xs: "none", md: desktopOpen ? "block" : "none" },          width: dra
             borderRight: "none",
             boxShadow: "none",
             overflow: "hidden",
+            display: "flex",       // 👈 make sidebar content stretch
+            flexDirection: "column",
+
           },
         }}
       >

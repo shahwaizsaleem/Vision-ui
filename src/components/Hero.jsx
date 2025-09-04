@@ -94,7 +94,7 @@ export default function Hero() {
       <Box
         sx={{
           flex: { xs: "1 1 100%", md: "1 1 48%" }, // ✅ responsive
-          height: { xs: "240px", sm: "280px", md: "344px" },
+          height: { xs: "260px", sm: "280px", md: "344px" },
           background: "linear-gradient(to bottom, #060B28BD, #0E153AB5)",
           borderRadius: "16px",
           p: { xs: 2, md: 3 },
@@ -102,7 +102,8 @@ export default function Hero() {
           flexDirection: "column",
           justifyContent: "space-between",
           color: "#fff",
-          boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)"
+          boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)",
+          mt: { xs: 2, md: 0 }
         }}
       >
         {/* Header */}
@@ -112,7 +113,7 @@ export default function Hero() {
         </Box>
 
         {/* Content */}
-        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexGrow: 1, mt: 2 }}>
+        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexGrow: 1,  }}>
           {/* Left stats */}
           <Box>
             <Box sx={{ mb: 2, backgroundColor: "#060C29", p: 2, borderRadius: "12px" }}>
