@@ -3,24 +3,36 @@ import Chart from "../components/Chart.jsx";
 import Card from "../components/Card.jsx";
 import Tablets from "../components/Tablets.jsx";
 import Hero from "../components/Hero.jsx";
+import { Box } from "@mui/material";
 
 export default function Dashboard() {
   return (
-    <div className="w-full mt-8 overflow-x-auto md:overflow-x-visible">
-      <div className="flex flex-col gap-4 min-w-full md:min-w-0">
-        <div className="w-full">
-          <Card />
-        </div>
-        <div className="w-full">
-          <Hero />
-        </div>
-        <div className="w-full">
-          <Chart />
-        </div>
-        <div className="w-full">
-          <Tablets />
-        </div>
-      </div>
-    </div>
+  <Box
+  sx={{
+    width: "100%",
+    maxWidth: "99vw", // 🔑 prevents overflow beyond viewport
+    mt: 5,
+    px: { sm: -1, lg: 4 },
+    display: "flex",
+    flexDirection: "column",
+    gap: { xs: 2, md: 3 },
+    ml: { xs: -2, sm: -1 }, // 🔑 avoid pushing too far left
+     // 🔑 removes ghost spacing on the right
+  }}
+>
+      {/* Top Card */}
+      <Card />
+
+      {/* Hero Section */}
+      <Hero />
+
+      {/* Chart (scrollable only on small screens) */}        
+      <Chart />
+      
+
+      {/* Tablets (scrollable only on small screens) */}        
+      <Tablets />
+      
+    </Box>
   );
 }

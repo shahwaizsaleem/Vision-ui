@@ -61,6 +61,7 @@ export default function Hero() {
           borderRadius: 4,
           backgroundColor: "#051232",
           color: "#fff",
+          mt: { xs: 2, md: 1 },
           height: { xs: "220px", sm: "260px", md: "344px" },
           display: "flex",
           flexDirection: "column",
@@ -103,7 +104,7 @@ export default function Hero() {
           justifyContent: "space-between",
           color: "#fff",
           boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)",
-          mt: { xs: 2, md: 0 }
+          mt: { xs: 2, md: 1 }
         }}
       >
         {/* Header */}
