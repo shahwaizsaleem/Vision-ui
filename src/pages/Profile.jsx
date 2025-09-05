@@ -234,9 +234,7 @@ export default function Profile() {
 
             <Button
               component="a"
-              href="https://www.google.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              
               sx={{ color: "white", alignSelf: "flex-start" }}
             >
               Turn on your car
