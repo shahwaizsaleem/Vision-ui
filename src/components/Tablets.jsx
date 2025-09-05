@@ -14,12 +14,12 @@ import CreditCardIcon from '@mui/icons-material/CreditCard';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 const projects = [
-  { name: "Chakra Vision UI Version", members: ["https://i.pravatar.cc/150?img=1", "https://i.pravatar.cc/150?img=2", "https://i.pravatar.cc/150?img=3"], budget: "$14,000", completion: 60, icon: <XdIcon sx={{ color: "#f24e1e", fontSize: 20 }} /> },
-  { name: "Add Progress Track", members: ["https://i.pravatar.cc/150?img=4", "https://i.pravatar.cc/150?img=5"], budget: "$3,000", completion: 10, icon: <AddTaskIcon sx={{ color: "#377dff", fontSize: 20 }} /> },
-  { name: "Fix Platform Errors", members: ["https://i.pravatar.cc/150?img=6", "https://i.pravatar.cc/150?img=7"], budget: "Not set", completion: 100, icon: <BugReportIcon sx={{ color: "#ff4757", fontSize: 20 }} /> },
-  { name: "Launch our Mobile App", members: ["https://i.pravatar.cc/150?img=8", "https://i.pravatar.cc/150?img=9", "https://i.pravatar.cc/150?img=10"], budget: "$20,500", completion: 100, icon: <LaunchIcon sx={{ color: "#2ed573", fontSize: 20 }} /> },
-  { name: "Add the New Pricing Page", members: ["https://i.pravatar.cc/150?img=11"], budget: "$500", completion: 25, icon: <ShoppingCartIcon sx={{ color: "#1e90ff", fontSize: 20 }} /> },
-  { name: "Redesign New Online Shop", members: ["https://i.pravatar.cc/150?img=12", "https://i.pravatar.cc/150?img=13"], budget: "$2,000", completion: 40, icon: <XdIcon sx={{ color: "#e84393", fontSize: 20 }} /> },
+  { name: "Chakra Vision UI Version", members: ["https://placehold.co/50x50", "https://placehold.co/50x50", "https://placehold.co/50x50"], budget: "$14,000", completion: 60, icon: <XdIcon sx={{ color: "#f24e1e", fontSize: 20 }} /> },
+  { name: "Add Progress Track", members: ["https://placehold.co/50x50", "https://placehold.co/50x50"], budget: "$3,000", completion: 10, icon: <AddTaskIcon sx={{ color: "#377dff", fontSize: 20 }} /> },
+  { name: "Fix Platform Errors", members: ["https://placehold.co/50x50", "https://placehold.co/50x50"], budget: "Not set", completion: 100, icon: <BugReportIcon sx={{ color: "#ff4757", fontSize: 20 }} /> },
+  { name: "Launch our Mobile App", members: ["https://placehold.co/50x50", "https://placehold.co/50x50", "https://placehold.co/50x50"], budget: "$20,500", completion: 100, icon: <LaunchIcon sx={{ color: "#2ed573", fontSize: 20 }} /> },
+  { name: "Add the New Pricing Page", members: ["https://placehold.co/50x50"], budget: "$500", completion: 25, icon: <ShoppingCartIcon sx={{ color: "#1e90ff", fontSize: 20 }} /> },
+  { name: "Redesign New Online Shop", members: ["https://placehold.co/50x50", "https://placehold.co/50x50"], budget: "$2,000", completion: 40, icon: <XdIcon sx={{ color: "#e84393", fontSize: 20 }} /> },
 ];
 
 const orders = [

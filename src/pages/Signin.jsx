@@ -72,9 +72,9 @@ export default function Signin() {
               </label>
 
               {/* Forgot password */}
-              <a href="#" className="text-sm text-indigo-400 hover:underline">
-                Forgot password?
-              </a>
+              <a href="/signin" className="text-sm text-indigo-400 hover:underline">
+  Forgot password?
+</a>
             </div>
 
             {/* Submit Button */}
