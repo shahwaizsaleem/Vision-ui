@@ -141,7 +141,7 @@ export default function Tables() {
           </Typography>
 
           <TableContainer sx={tableScrollStyles}>
-            <Table size="small" sx={{ width: isSmall ? 'auto' : '100%', tableLayout: "fixed" }}>
+            <Table size="small" sx={{ width: isSmall ? '100%' : '100%', tableLayout: "fixed" }}>
               <TableHead>
                 <TableRow>
                   <TableCell sx={{ color: "#718096", fontSize: isSmall ? 9 : 12, backgroundColor: "#0F123B", padding: isSmall ? '8px 4px' : '16px' }}>
