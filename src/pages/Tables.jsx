@@ -108,7 +108,7 @@ export default function Tables() {
                       </Typography>
                     </TableCell>
                     <TableCell sx={{ padding: isSmall ? '8px 4px' : '16px' }}>
-                      <Typography sx={{ color: "white", fontSize: isSmall ? 8 : 11, bgcolor: author.status === "Online" ? "green" : "gray", px: isSmall ? 0.5 : 1, py: isSmall ? 0.25 : 0.5, borderRadius: 1, display: "inline-block", textAlign: 'center', minWidth: isSmall ? '45px' : '60px' }}>
+                      <Typography sx={{ color: "white", fontSize: isSmall ? 8 : 11, bgcolor: author.status === "Online" ? "green" : "gray", px: isSmall ? 0.5 : 1, py: isSmall ? 0.25 : 0.5, borderRadius: 2, display: "inline-block", textAlign: 'center', minWidth: isSmall ? '45px' : '60px' }}>
                         {author.status}
                       </Typography>
                     </TableCell>
@@ -177,7 +177,7 @@ export default function Tables() {
                       </Typography>
                     </TableCell>
                     <TableCell sx={{ padding: isSmall ? '6px 3px' : '16px' }}>
-                      <Typography sx={{ color: "white", fontSize: isSmall ? 7 : 12, px: isSmall ? 0.3 : 1, py: isSmall ? 0.2 : 0.5, borderRadius: 1, display: "inline-block", whiteSpace: "nowrap", bgcolor: 'rgba(255,255,255,0.1)' }}>
+                      <Typography sx={{ color: "white", fontSize: isSmall ? 7 : 12, px: isSmall ? 0.3 : 1, py: isSmall ? 0.2 : 0.5, borderRadius: 1, display: "inline-block", whiteSpace: "nowrap"}}>
                         {proj.status}
                       </Typography>
                     </TableCell>
