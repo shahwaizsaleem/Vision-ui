@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CircularProgress from "@mui/material/CircularProgress";
 import {
   Card,
   CardContent,
@@ -12,36 +13,26 @@ import {
   FormControlLabel,
   Switch,
 } from "@mui/material";
+
+// MUI Icons
+import BatteryFullIcon from "@mui/icons-material/BatteryFull";
+import BatteryChargingFullIcon from "@mui/icons-material/BatteryChargingFull";
+import SpeedIcon from "@mui/icons-material/Speed";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import TimelineIcon from "@mui/icons-material/Timeline";
 import GroupsIcon from "@mui/icons-material/Groups";
 import FolderIcon from "@mui/icons-material/Folder";
+import FlashOnIcon from "@mui/icons-material/FlashOn";
+import ShowChartIcon from "@mui/icons-material/ShowChart";
+import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
+
+// Charts & Assets
 import Chart from "react-apexcharts";
 import PBG from "../assets/PBG.png";
 import logo from "../assets/logo.png";
 import P1 from "../assets/P1.png";
 import P2 from "../assets/P2.png";
 import P3 from "../assets/P3.png";
-
-function StatCard({ title, value }) {
-  return (
-    <Card
-      sx={{
-        bgcolor: "#060B28F0",
-        borderRadius: 2,
-        boxShadow: "0 6px 18px rgba(2,6,23,0.6)",
-        width: "100%",
-      }}
-    >
-      <CardContent>
-        <Typography variant="subtitle2" color="text.secondary">
-          {title}
-        </Typography>
-        <Typography variant="h5" sx={{ mt: 1, fontWeight: 700 }}>
-          {value}
-        </Typography>
-      </CardContent>
-    </Card>
-  );
-}
 
 const projects = [
   {
@@ -243,99 +234,226 @@ export default function Profile() {
         </Card>
 
         {/* Car Information Card */}
-        <Card
+<Card
+  sx={{
+    p: 2,
+    borderRadius: 3,
+    background: "#060B28F0",
+    color: "#fff",
+    height: { xs: "auto", md: 377 },
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
+  {/* Title */}
+  <Typography variant="h6" sx={{ color: "#fff" }}>
+    Car Informations
+  </Typography>
+  <Typography variant="body2" sx={{ mb: 3, color: "#fff" }}>
+    Hello, Mark Johnson! Your Car is ready.
+  </Typography>
+
+  {/* Flex Layout for Circle + Stats */}
+  <Box
+    sx={{
+      display: "flex",
+      flex: 1,
+      gap: 2,
+      mt: 3,
+      flexDirection: { xs: "column", md: "row" },
+    }}
+  >
+    {/* Left Circular Gauge */}
+    <Box
+      sx={{
+        flex: { xs: "1", md: "0 0 32%" },
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 2,
+      }}
+    >
+      <Box sx={{ position: "relative", display: "inline-flex" }}>
+        {/* Background Circle */}
+        <CircularProgress
+          variant="determinate"
+          value={100}
+          size={140}
+          thickness={4}
+          sx={{ color: "rgba(255,255,255,0.1)" }}
+        />
+        {/* Foreground Circle */}
+        <CircularProgress
+          variant="determinate"
+          value={68}
+          size={140}
+          thickness={4}
           sx={{
-            borderRadius: 4,
-            background: "#060B28F0",
-            color: "white",
-            p: { xs: 2, md: 3 },
+            color: "#10d876",
+            position: "absolute",
+            left: 0,
+          }}
+        />
+        {/* Center Content */}
+        <Box
+          sx={{
+            width: 140,
+            height: 140,
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            textAlign: "center",
+            flexDirection: "column",
           }}
         >
-          <Typography variant="h6">Car Informations</Typography>
-          <Typography variant="body2">Hello, Mark Johnson! Your Car is ready.</Typography>
+          <BatteryChargingFullIcon
+            sx={{ fontSize: 28, color: "#10d876", mb: 1 }}
+          />
+          <Typography variant="h5" fontWeight="bold" sx={{ color: "#fff" }}>
+            68%
+          </Typography>
+          <Typography variant="subtitle2" sx={{ color: "#fff" }}>
+            Current load
+          </Typography>
+        </Box>
+      </Box>
 
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column", md: "row" },
-              alignItems: "center",
-              mt: 3,
-              gap: 2,
-            }}
-          >
-            {/* Radial Chart */}
-            <Box sx={{ width: { xs: "100%", md: 180 }, textAlign: "center" }}>
-              <Chart
-                options={loadChart.options}
-                series={loadChart.series}
-                type="radialBar"
-                height={180}
-              />
-              <Typography variant="caption" sx={{ display: "block", mt: 1 }}>
-                0h 58 min <br /> Time to full charge
-              </Typography>
-            </Box>
+      {/* Time to full charge */}
+      <Typography
+        variant="caption"
+        sx={{ color: "#fff", textAlign: "center" }}
+      >
+        0h 58 min <br /> Time to full charge
+      </Typography>
+    </Box>
 
-            {/* Right Stats */}
-            <Grid container spacing={2} sx={{ flex: 1 }}>
-              <Grid item xs={12} sm={6}>
-                <Box sx={{ bgcolor: "#0F123B", p: 2, borderRadius: 2, height: "100%" }}>
-                  <Typography variant="body2" color="white">
-                    Battery Health
-                  </Typography>
-                  <Typography variant="h6" fontWeight={700}>
-                    76%
-                  </Typography>
-                </Box>
-              </Grid>
+    {/* Right Stats Grid */}
+{/* Right Stats Grid */}
+<Box sx={{ flex: 2 }}>
+  <Box
+    sx={{
+      display: "flex",
+      flexWrap: "wrap",
+      gap: 2,
+      justifyContent: { xs: "center", sm: "flex-start" },
+    }}
+  >
+    {/* Battery Health */}
+    <Card
+      sx={{
+        bgcolor: "rgba(255,255,255,0.05)",
+        borderRadius: 2,
+        p: 2,
+        width: "250px",
+      }}
+    >
+      <Stack direction="row" alignItems="center" justifyContent="space-between">
+        <Box>
+          <Typography variant="subtitle2" sx={{ color: "#fff" }}>
+            Health
+          </Typography>
+          <Typography variant="h6" fontWeight="bold" sx={{ color: "#fff" }}>
+            76%
+          </Typography>
+        </Box>
+        <DirectionsCarIcon
+          sx={{
+            bgcolor: "#1e90ff",
+            width: 40,
+            height: 40,
+            color: "#fff",
+            borderRadius: 2,
+            p: 1,
+          }}
+        />
+      </Stack>
+    </Card>
 
-              <Grid item xs={12} sm={6}>
-                <Box sx={{ bgcolor: "#0F123B", p: 2, borderRadius: 2, height: "100%" }}>
-                  <Typography variant="body2" color="white">
-                    Efficiency
-                  </Typography>
-                  <Typography variant="h6" fontWeight={700}>
-                    +20%
-                  </Typography>
-                  <Chart
-                    options={sparklineOptions}
-                    series={efficiencySeries}
-                    type="line"
-                    height={50}
-                  />
-                </Box>
-              </Grid>
+    {/* Efficiency */}
+    <Card
+      sx={{
+        bgcolor: "rgba(255,255,255,0.05)",
+        borderRadius: 2,
+        p: 2,
+        width: "250px",
+      }}
+    >
+      <Stack direction="row" alignItems="center" justifyContent="space-between">
+        <Box>
+          <Typography variant="subtitle2" sx={{ color: "#fff" }}>
+            Efficiency
+          </Typography>
+          <Typography variant="h6" fontWeight="bold" sx={{ color: "#fff" }}>
+            +20%
+          </Typography>
+        </Box>
+        <ShowChartIcon sx={{ color: "green", width: 40, height: 40 }} />
+      </Stack>
+    </Card>
 
-              <Grid item xs={12} sm={6}>
-                <Box sx={{ bgcolor: "#0F123B", p: 2, borderRadius: 2, height: "100%" }}>
-                  <Typography variant="body2" color="white">
-                    Consumption
-                  </Typography>
-                  <Typography variant="h6" fontWeight={700}>
-                    163W/km
-                  </Typography>
-                </Box>
-              </Grid>
+    {/* Consumption */}
+    <Card
+      sx={{
+        bgcolor: "rgba(255,255,255,0.05)",
+        borderRadius: 2,
+        p: 2,
+        width: "250px",
+      }}
+    >
+      <Stack direction="row" alignItems="center" justifyContent="space-between">
+        <Box>
+          <Typography variant="subtitle2" sx={{ color: "#fff", fontSize: 12 }}>
+            Consumption
+          </Typography>
+          <Typography variant="h6" fontWeight="bold" sx={{ color: "#fff" }}>
+            163W/km
+          </Typography>
+        </Box>
+        <FlashOnIcon
+          sx={{
+            bgcolor: "#1e90ff",
+            width: 40,
+            height: 40,
+            color: "#fff",
+            borderRadius: 2,
+            p: 1,
+          }}
+        />
+      </Stack>
+    </Card>
 
-              <Grid item xs={12} sm={6}>
-                <Box sx={{ bgcolor: "#0F123B", p: 2, borderRadius: 2, height: "100%" }}>
-                  <Typography variant="body2" color="white">
-                    This Week
-                  </Typography>
-                  <Typography variant="h6" fontWeight={700}>
-                    1.342km
-                  </Typography>
-                  <Chart
-                    options={{ ...sparklineOptions, colors: ["#008FFB"] }}
-                    series={weekSeries}
-                    type="line"
-                    height={50}
-                  />
-                </Box>
-              </Grid>
-            </Grid>
-          </Box>
-        </Card>
+    {/* This Week */}
+    <Card
+      sx={{
+        bgcolor: "rgba(255,255,255,0.05)",
+        borderRadius: 2,
+        p: 2,
+        width: "250px",
+      }}
+    >
+      <Stack direction="row" alignItems="center" justifyContent="space-between">
+        <Box>
+          <Typography variant="subtitle2" sx={{ color: "#fff" }}>
+            This Week
+          </Typography>
+          <Typography variant="h6" fontWeight="bold" sx={{ color: "#fff" }}>
+            1.3km
+          </Typography>
+        </Box>
+        <ShowChartIcon sx={{ color: "green", width: 40, height: 40 }} />
+      </Stack>
+    </Card>
+  </Box>
+</Box>
+
+  </Box>
+</Card>
+
+
 
         {/* Profile Information */}
         <Card sx={{ bgcolor: "#060B28F0", color: "white", borderRadius: 4 }}>

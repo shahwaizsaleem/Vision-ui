@@ -36,6 +36,9 @@ body::-webkit-scrollbar {
   width: 0px;               /* Chrome, Safari, Edge */
   background: transparent;  /* optional: hide scrollbar track */
 }
+html, body {
+  overflow-x: hidden;
+}
 /* ---------------------------
    🌍 Global Styles
 ---------------------------- */

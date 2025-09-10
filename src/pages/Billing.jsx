@@ -143,7 +143,7 @@ export default function Billing() {
             background: "linear-gradient(135deg, #041d44, #062c77)",
             color: "#fff",
             borderRadius: "20px",
-            height: { xs: "auto", md: "570px" }, // ✅ responsive height
+            height: { xs: "auto", md: "600px" }, // ✅ responsive height
           }}
         >
           <CardContent>
