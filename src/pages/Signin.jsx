@@ -8,7 +8,7 @@ export default function Signin() {
       <AppBar />
 
       {/* Left side: Image with text */}
-      <div className="relative w-full lg:w-1/2 h-[300px] lg:h-full">
+      <div className="relative hidden lg:block w-full lg:w-1/2 h-[300px] lg:h-full">
         <img
           src={SBG}
           alt="Example"
@@ -27,7 +27,7 @@ export default function Signin() {
       </div>
 
       {/* Right side: Sign in form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 mt-10">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 mt-20 lg:mt-10">
         <div className="w-full max-w-md bg-[#0F123B] border border-white/20 shadow-lg rounded-2xl p-8">
           {/* Title + Subtitle */}
           <h2 className="text-3xl font-bold text-white text-center mb-2">

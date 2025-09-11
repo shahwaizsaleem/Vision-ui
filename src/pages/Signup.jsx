@@ -10,7 +10,7 @@ export default function Signup() {
       {/* Content Wrapper */}
       <div className="flex flex-col lg:flex-row w-full h-full relative">
         {/* Left Side: Full-height Image with Overlay */}
-        <div className="relative w-full lg:w-1/2 h-[300px] lg:h-auto">
+        <div className="relative w-full hidden lg:block lg:w-1/2 h-[300px] lg:h-auto">
           <img
             src={SBG}
             alt="Example"
@@ -27,7 +27,7 @@ export default function Signup() {
         </div>
 
         {/* Right Side: Card + Text */}
-        <div className="flex flex-col items-center justify-center w-full lg:w-1/2 px-6 py-12 relative z-10 mt-10">
+        <div className="flex flex-col items-center justify-center w-full lg:w-1/2 px-6 py-12 relative z-10 mt-20 lg:mt-10">
           {/* Titles */}
           <div className="text-center mb-6">
             <h2 className="text-3xl font-bold text-white mb-2">Welcome!</h2>
